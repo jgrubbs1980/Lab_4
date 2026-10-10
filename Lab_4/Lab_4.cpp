@@ -1,4 +1,4 @@
-// Lab_4.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Lab_5.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 
 #include <iostream>
@@ -9,27 +9,63 @@ using namespace std;
 int main()
 {
 	int beginningInventory = 50;
-
 	string foodName;
+	string sizeName;
+	int itemQuantity;
+	double unitPrice;
+	char isMember;
+
+
+	cout << "---Menu---";
+	cout << "Items";
+	cout << fixed << setprecision(2);
+	cout << setw(15) << "Small (s)";
+	cout << setw(15) << "Medium (m)";
+	cout << setw(15) << "Large (l)";
+	cout << setw(18) << "-------------------------------------------------------------------------Fries" << setw(15) << "$1.00" << setw(15) << "$1.50" << setw(15) << "$2.00" << endl;
+	cout << setw(18) << "Burger" << setw(15) << "$1.00" << setw(15) << "$1.50" << setw(15) << "$2.00" << endl;
+	cout << setw(18) << "Pizza" << setw(15) << "$1.00" << setw(15) << "$1.50" << setw(15) << "$2.00" << endl;
+	cout <<	setw(18) << "Soda" << setw(15) << "$1.00" << setw(15) << "$1.50" << setw(15) << "$2.00" << endl;
+	cout << "----------" << endl;
+
 	cout << "Pick a food item: ";
 	cin >> foodName;
-	char itemCode;
-	cout << "Enter item code: ";
-	cin >> itemCode;
-	int itemQuantity;
+	cout << "Pick a size, (s/m/l). ";
+	cin >> sizeName;
 	cout << "Enter item quantity: ";
 	cin >> itemQuantity;
-	double unitPrice;
-	cout << "Enter unit price: $";
-	cin >> unitPrice;
-	char isMember;
 	cout << "Are you a member? (Y/N): ";
 	cin >> isMember;
+
+	if (foodName == "Pizza" || foodName == "pizza")
+	{
+		if (sizeName == "s") unitPrice = 1.00;
+		else if (sizeName == "m") unitPrice = 1.50;
+		else if (sizeName == "l") unitPrice = 2.00;
+	}
+	else if (foodName == "Burger" || foodName == "burger")
+	{
+		if (sizeName == "s") unitPrice = 1.00;
+		else if (sizeName == "m") unitPrice = 1.50;
+		else if (sizeName == "l") unitPrice = 2.00;
+	}
+	else if (foodName == "Fries" || foodName == "fries")
+	{
+		if (sizeName == "s") unitPrice = 1.00;
+		else if (sizeName == "m") unitPrice = 1.50;
+		else if (sizeName == "l") unitPrice = 2.00;
+	}
+	else if (foodName == "Soda" || foodName == "soda")
+	{
+		if (sizeName == "s") unitPrice = 1.00;
+		else if (sizeName == "m") unitPrice = 1.50;
+		else if (sizeName == "l") unitPrice = 2.00;
+	}
+
 
 	cout << setw(10) << "Receipt" << endl;
 	if (isMember == 'Y' || isMember == 'y') {
 		cout << setw(10) << "Food Item: " << foodName << endl;
-		cout << setw(10) << "Item Code: " << itemCode << endl;
 		cout << setw(10) << "Item Quantity: " << itemQuantity << endl;
 		cout << setw(10) << fixed << setprecision(2) <<"Unit Price: $" << unitPrice << endl;
 		double subtotal = itemQuantity * unitPrice;
@@ -41,7 +77,6 @@ int main()
 	}
 	else {
 		cout << setw(10) << "Food Item: " << foodName << endl;
-		cout << setw(10) << "Item Code: " << itemCode << endl;
 		cout << setw(10) << "Item Quantity: " << itemQuantity << endl;
 		cout << setw(10) << "Unit Price: $" << unitPrice << endl;
 		double totalPrice = itemQuantity * unitPrice;
